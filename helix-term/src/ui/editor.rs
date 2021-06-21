@@ -73,6 +73,7 @@ fn merge<I: Iterator<Item = HighlightEvent>>(
 impl<I: Iterator<Item = HighlightEvent>> Iterator for Merge<I> {
     type Item = HighlightEvent;
     fn next(&mut self) -> Option<Self::Item> {
+        // thread 'main' panicked at 'not implemented: (Some(Source { start: 6328, end: 6329 }), Some((0, 6096..6493)))', helix-term/src/ui/editor.rs:151:18
         use HighlightEvent::*;
         if let Some(event) = self.queue.pop() {
             return Some(event);
